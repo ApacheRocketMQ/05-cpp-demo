@@ -26,7 +26,7 @@ public:
     {
         for (size_t i = 0; i < msgs.size(); ++i)
         {
-            cout << "msg body: " << msgs[i].getBody() << endl;
+            cout << "消费消息body: " << msgs[i].getBody() << endl;
         }
         return CONSUME_SUCCESS;
     }
@@ -66,7 +66,7 @@ int producer_demo(string namesrv_addr, string topic)
     MQMessage msg(topic, "*", "Hi RocketMQ");
     SendResult sendResult = producer.send(msg, false);
 
-    cout << sendResult.getMsgId();
+    cout << "发送消息成功：" << sendResult.getMsgId() << endl;
 
     producer.shutdown();
 
